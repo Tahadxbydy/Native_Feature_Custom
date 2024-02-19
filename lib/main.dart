@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:native_features_without_plugin/Utilities.dart';
 
@@ -48,7 +50,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   SettingsService.openSettingsPage();
                 },
                 child: Text('Open Settings page')),
-            ElevatedButton(onPressed: () {}, child: Text('Open wifi settings'))
+            ElevatedButton(
+                onPressed: () {
+                  SettingsService.openWifiSettings(
+                      Platform.isIOS ? context : null);
+                },
+                child: Text('Open wifi settings'))
           ],
         ),
       ),

@@ -16,7 +16,10 @@ class MainActivity : FlutterActivity() {
             if (call.method == "openSettingsPage") {
                 openSettingsPage()
                 result.success(null)
-            } else {
+            } else if (call.method == "openWifiSettings"){
+                openWifiSettings()
+                result.success(null)
+            }else {
                 result.notImplemented()
             }
         }
@@ -26,4 +29,9 @@ class MainActivity : FlutterActivity() {
         val intent = Intent(Settings.ACTION_SETTINGS)
         startActivity(intent)
     }
+    private fun openWifiSettings() {
+   val  intent = Intent(Settings.ACTION_WIFI_SETTINGS);
+    startActivity(intent);
+    }
+
 }
