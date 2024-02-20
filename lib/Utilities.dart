@@ -46,3 +46,25 @@ class SettingsService {
     );
   }
 }
+
+class DeviceLockingServices {
+  static const MethodChannel _channel = MethodChannel('device_locking');
+
+  static Future<void> lockDevice() async {
+    try {
+      if (Platform.isAndroid) {
+        await _channel.invokeMethod('lockDevice');
+      } else if (Platform.isIOS) {
+        // Handle for iOS (show instructions)
+        showGuidedAccessInstructions();
+      }
+    } on PlatformException catch (e) {
+      print("Failed to Lock the device: '${e.message}'.");
+    }
+  }
+
+  static void showGuidedAccessInstructions() {
+    // Show instructions for enabling Guided Access on iOS
+    // For example, display an alert dialog guiding the user to enable Guided Access in Settings.
+  }
+}

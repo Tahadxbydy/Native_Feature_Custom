@@ -44,7 +44,11 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            ElevatedButton(onPressed: () {}, child: Text('Turn Phone off')),
+            ElevatedButton(
+                onPressed: () {
+                  DeviceLockingServices.lockDevice();
+                },
+                child: Text('Turn Phone off')),
             ElevatedButton(
                 onPressed: () {
                   SettingsService.openSettingsPage();

@@ -28,3 +28,15 @@ import Flutter
         }
     }
 }
+
+
+
+class ViewController: UIViewController {
+
+    @IBAction func lockDevice(_ sender: Any) {
+        let alertController = UIAlertController(title: "Guided Access", message: "Please enable Guided Access in Settings", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
+}
+
